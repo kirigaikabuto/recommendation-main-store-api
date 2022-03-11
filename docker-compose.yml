@@ -1,0 +1,16 @@
+version: "3"
+services:
+  work_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbit
+      - db
+  rabbit:
+    image: rabbitmq:3
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example

@@ -1,0 +1,16 @@
+docker build --tag work-api .
+docker run work-api
+docker-compose build
+docker-compose up
+
+psql -d postgres -U postgres
+CREATE DATABASE myDB;
+CREATE USER myUser WITH PASSWORD ‘myPassword’;
+GRANT ALL PRIVILEGES ON myDB TO myUser;
+
+postgresUser         = "setdatauser"
+postgresPassword     = "123456789"
+postgresDatabaseName = "recommendation_system"
+postgresHost         = "192.168.0.12"
+postgresPort         = 5432
+postgresParams       = "sslmode=disable"
